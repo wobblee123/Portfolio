@@ -1,0 +1,15 @@
+alias: Riley Heating Thingaling On
+description: ""
+trigger:
+ - platform: numeric_state
+   entity_id: sensor.heat_pump_dhw_temperature
+   below: 20
+condition: []
+action:
+ - service: notify.mobile_app
+   data:
+     message: "Enabling DHW Heater."
+ - service: switch.turn_on
+   target:
+     entity_id: switch.your_switch_entity_id_here
+mode: single
